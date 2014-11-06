@@ -31,8 +31,7 @@ var printDuration = function() {
   $('#duration').text(durationInS);
 };
 
-var log = function() {
-  var text = Array.prototype.join.call(arguments, ' ');
-  var entry = $('<li>').addClass('list-group-item').text(text);
+var log = function(message) {
+  var entry = $('<li>').addClass('list-group-item').text(message);
   $('#log').append(entry);
 };

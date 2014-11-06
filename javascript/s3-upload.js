@@ -11,9 +11,10 @@ var uploadFile = function(file) {
     finish();
 
     if (err) {
-      log('Error!');
+      log('Error: See the console for more');
+      console.log('ERROR:', err, err.stack)
     } else {
-      log('Uploaded successfully.');
+      log('Uploaded successfully');
     };
   });
 };

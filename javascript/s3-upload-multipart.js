@@ -39,7 +39,7 @@ var startMultipartUpload = function(file) {
 
   var fileChunks = chunkFile(file);
   queueChunks(fileChunks);
-  log('INFO:', queuedChunks.length, 'chunks queued');
+  log([queuedChunks.length, 'chunks queued'].join(' '));
 
   var params = {
     'Key': file.name,
@@ -47,7 +47,8 @@ var startMultipartUpload = function(file) {
   };
   window.bucket.createMultipartUpload(params, function(err, data) {
     if (err) {
-      log('ERROR:', err, err.stack);
+      log('Error: See the console for more');
+      console.log('ERROR:', err, err.stack)
     } else {
       uploadParts(data.UploadId, file);
     };
@@ -59,7 +60,6 @@ var startMultipartUpload = function(file) {
 var uploadParts = function(uploadId, file) {
   $(queuedChunks).each(function() {
     var chunk = this;
-    log('DEBUG:', 'chunk', chunk);
     uploadPart(uploadId, file, chunk);
   });
 };
@@ -73,12 +73,13 @@ var uploadPart = function(uploadId, file, chunk) {
     'PartNumber': chunk.partNumber,
     'Body': chunk.body
   };
-  log('INFO:', 'Uploading part number', chunk.partNumber);
+  log(['Uploading part number', chunk.partNumber].join(' '));
   window.bucket.uploadPart(params, function(err, data) {
     if (err) {
-      log('ERROR', err, err.stack);
+      log('Error: See the console for more');
+      console.log('ERROR:', err, err.stack)
     } else {
-      log('INFO:', 'Uploaded part number', chunk.partNumber);
+      log(['Uploaded part number', chunk.partNumber].join(' '));
       chunk.etag = data.ETag;
       moveChunkToCompletedQueue(chunk);
       checkAndFinaliseUpload(uploadId, file);
@@ -131,9 +132,10 @@ var checkAndFinaliseUpload = function(uploadId, file) {
     finish();
 
     if (err) {
-      log('ERROR', err, err.stack);
+      log('Error: See the console for more');
+      console.log('ERROR:', err, err.stack)
     } else {
-      log('DEBUG:', 'Data:', data);
+      log('Uploaded successfully');
     };
   });
 };
