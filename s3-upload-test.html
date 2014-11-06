@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.0.22.js"></script>
+
+    <script src="./javascript/aws-config.js"></script>
+    <script src="./javascript/utilities.js"></script>
+
+    <script type="text/javascript">
+      AWS.config.update({
+        accessKeyId: window.awsAccessKeyId,
+        secretAccessKey: window.awsSecretAccessKey
+      });
+      AWS.config.region = window.awsRegion;
+    </script>
+
+    <script type="text/javascript">
+      $(function() {
+        window.bucket = new AWS.S3({params: {Bucket: window.awsS3Bucket}});
+
+        window.fileChooser = document.getElementById('file-chooser');
+        window.button = document.getElementById('upload-button');
+      });
+    </script>
+
+    <script src="./javascript/s3-upload.jsx"></script>
+    <script src="./javascript/s3-upload-multipart.js"></script>
+
+    <title>Playing with AWS JS SDK</title>
+  </head>
+  <body>
+    <h1>Playing with AWS JS SDK</h1>
+
+    <h2>Input</h2>
+
+    <input type="file" id="file-chooser" />
+    <button id="upload-button">Upload to S3</button>
+
+    <h2>Output</h2>
+
+    <div>
+      <span>Started at:</span>
+      <span id="startedAt"></span>
+    </div>
+
+    <div>
+      <span>Finished at:</span>
+      <span id="finishedAt"></span>
+    </div>
+
+    <div>
+      <span>Duration (seconds):</span>
+      <span id="duration"></span>
+    </div>
+
+    <h3>Log</h3>
+
+    <ul id="log">
+    </ul>
+  </body>
+</html>
