@@ -8,15 +8,13 @@
     <script src="./javascript/utilities.js"></script>
 
     <script type="text/javascript">
-      AWS.config.update({
-        accessKeyId: window.awsAccessKeyId,
-        secretAccessKey: window.awsSecretAccessKey
-      });
-      AWS.config.region = window.awsRegion;
-    </script>
-
-    <script type="text/javascript">
       $(function() {
+        AWS.config.update({
+          accessKeyId: window.awsAccessKeyId,
+          secretAccessKey: window.awsSecretAccessKey
+        });
+        AWS.config.region = window.awsRegion;
+
         window.bucket = new AWS.S3({params: {Bucket: window.awsS3Bucket}});
 
         var fileChooser = document.getElementById('file-chooser');
