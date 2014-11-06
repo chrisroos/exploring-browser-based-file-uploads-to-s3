@@ -19,11 +19,11 @@
       $(function() {
         window.bucket = new AWS.S3({params: {Bucket: window.awsS3Bucket}});
 
-        window.fileChooser = document.getElementById('file-chooser');
-        window.button = document.getElementById('upload-button');
+        var fileChooser = document.getElementById('file-chooser');
+        var button = document.getElementById('upload-button');
 
-        window.button.addEventListener('click', function() {
-          var file = window.fileChooser.files[0];
+        button.addEventListener('click', function() {
+          var file = fileChooser.files[0];
           if (file) {
             var uploadType = $('input[name=uploadType]:checked').val();
 
