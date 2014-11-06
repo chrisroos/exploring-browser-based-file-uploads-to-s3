@@ -39,3 +39,7 @@ var log = function(message, cssClass) {
 var logSuccess = function(message) {
   log(message, 'list-group-item-success');
 };
+
+var logError = function(message) {
+  log(message, 'list-group-item-danger');
+};

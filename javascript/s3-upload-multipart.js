@@ -47,7 +47,7 @@ var startMultipartUpload = function(file) {
   };
   window.bucket.createMultipartUpload(params, function(err, data) {
     if (err) {
-      log('Error: See the console for more');
+      logError('Error: See the console for more');
       console.log('ERROR:', err, err.stack)
     } else {
       uploadParts(data.UploadId, file);
@@ -76,7 +76,7 @@ var uploadPart = function(uploadId, file, chunk) {
   log(['Uploading part number', chunk.partNumber].join(' '));
   window.bucket.uploadPart(params, function(err, data) {
     if (err) {
-      log('Error: See the console for more');
+      logError('Error: See the console for more');
       console.log('ERROR:', err, err.stack)
     } else {
       log(['Uploaded part number', chunk.partNumber].join(' '));
@@ -132,7 +132,7 @@ var checkAndFinaliseUpload = function(uploadId, file) {
     finish();
 
     if (err) {
-      log('Error: See the console for more');
+      logError('Error: See the console for more');
       console.log('ERROR:', err, err.stack)
     } else {
       logSuccess('Uploaded successfully');
