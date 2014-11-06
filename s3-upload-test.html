@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" type="text/css" charset="utf-8">
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.0.22.js"></script>
 
@@ -44,43 +49,45 @@
     <title>Playing with AWS JS SDK</title>
   </head>
   <body>
-    <h1>Playing with AWS JS SDK</h1>
+    <div class="container">
+      <h1>Playing with AWS JS SDK</h1>
 
-    <h2>Input</h2>
+      <h2>Input</h2>
 
-    <div>
-      <input type="radio" name="uploadType" value="single" checked="checked">Single file</input>
+      <div>
+        <input type="radio" name="uploadType" value="single" checked="checked">Single file</input>
+      </div>
+      <div>
+        <input type="radio" name="uploadType" value="multipart">Multipart</input>
+      </div>
+      <div>
+        <input type="file" id="file-chooser" />
+      </div>
+      <div>
+        <button id="upload-button">Upload to S3</button>
+      </div>
+
+      <h2>Output</h2>
+
+      <div>
+        <span>Started at:</span>
+        <span id="startedAt"></span>
+      </div>
+
+      <div>
+        <span>Finished at:</span>
+        <span id="finishedAt"></span>
+      </div>
+
+      <div>
+        <span>Duration (seconds):</span>
+        <span id="duration"></span>
+      </div>
+
+      <h3>Log</h3>
+
+      <ul id="log">
+      </ul>
     </div>
-    <div>
-      <input type="radio" name="uploadType" value="multipart">Multipart</input>
-    </div>
-    <div>
-      <input type="file" id="file-chooser" />
-    </div>
-    <div>
-      <button id="upload-button">Upload to S3</button>
-    </div>
-
-    <h2>Output</h2>
-
-    <div>
-      <span>Started at:</span>
-      <span id="startedAt"></span>
-    </div>
-
-    <div>
-      <span>Finished at:</span>
-      <span id="finishedAt"></span>
-    </div>
-
-    <div>
-      <span>Duration (seconds):</span>
-      <span id="duration"></span>
-    </div>
-
-    <h3>Log</h3>
-
-    <ul id="log">
-    </ul>
   </body>
 </html>
