@@ -54,17 +54,23 @@
 
       <h2>Input</h2>
 
-      <div>
-        <input type="radio" name="uploadType" value="single" checked="checked">Single file</input>
+      <div class="radio">
+        <label>
+          <input type="radio" name="uploadType" value="single" checked="checked">
+          Single file
+        </label>
       </div>
-      <div>
-        <input type="radio" name="uploadType" value="multipart">Multipart</input>
+      <div class="radio">
+        <label>
+          <input type="radio" name="uploadType" value="multipart">
+          Multipart
+        </label>
       </div>
-      <div>
+      <div class="form-group">
         <input type="file" id="file-chooser" />
       </div>
-      <div>
-        <button id="upload-button">Upload to S3</button>
+      <div class="form-group">
+        <button id="upload-button" class="btn btn-default">Upload to S3</button>
       </div>
 
       <h2>Output</h2>
