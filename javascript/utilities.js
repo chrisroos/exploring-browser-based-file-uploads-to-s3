@@ -33,6 +33,6 @@ var printDuration = function() {
 
 var log = function() {
   var text = Array.prototype.join.call(arguments, ' ');
-  var entry = $('<li>').text(text);
+  var entry = $('<li>').addClass('list-group-item').text(text);
   $('#log').append(entry);
 };
