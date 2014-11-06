@@ -11,38 +11,7 @@
 
     <script src="./javascript/aws-config.js"></script>
     <script src="./javascript/utilities.js"></script>
-
-    <script type="text/javascript">
-      $(function() {
-        AWS.config.update({
-          accessKeyId: window.awsAccessKeyId,
-          secretAccessKey: window.awsSecretAccessKey
-        });
-        AWS.config.region = window.awsRegion;
-
-        window.bucket = new AWS.S3({params: {Bucket: window.awsS3Bucket}});
-
-        var fileChooser = document.getElementById('file-chooser');
-        var button = document.getElementById('upload-button');
-
-        button.addEventListener('click', function() {
-          var file = fileChooser.files[0];
-          if (file) {
-            var uploadType = $('input[name=uploadType]:checked').val();
-
-            if (uploadType == 'single') {
-              uploadFile(file);
-            } else {
-              startMultipartUpload(file);
-            };
-
-          } else {
-            log('Nothing to upload.');
-          };
-        }, false);
-      });
-    </script>
-
+    <script src="./javascript/init.js"></script>
     <script src="./javascript/s3-upload.js"></script>
     <script src="./javascript/s3-upload-multipart.js"></script>
 
@@ -70,7 +39,7 @@
         <input type="file" id="file-chooser" />
       </div>
       <div class="form-group">
-        <button id="upload-button" class="btn btn-default">Upload to S3</button>
+        <button id="upload-button" class="btn btn-primary">Upload to S3</button>
       </div>
 
       <h2>Output</h2>
