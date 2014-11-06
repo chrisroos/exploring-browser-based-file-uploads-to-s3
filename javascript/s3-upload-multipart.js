@@ -135,7 +135,7 @@ var checkAndFinaliseUpload = function(uploadId, file) {
       log('Error: See the console for more');
       console.log('ERROR:', err, err.stack)
     } else {
-      log('Uploaded successfully');
+      logSuccess('Uploaded successfully');
     };
   });
 };
