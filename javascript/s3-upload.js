@@ -17,14 +17,3 @@ var uploadFile = function(file) {
     };
   });
 };
-
-$(function() {
-  window.button.addEventListener('click', function() {
-    var file = window.fileChooser.files[0];
-    if (file) {
-      uploadFile(file);
-    } else {
-      log('Nothing to upload.');
-    };
-  }, false);
-});

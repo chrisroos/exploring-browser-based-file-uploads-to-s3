@@ -137,13 +137,3 @@ var checkAndFinaliseUpload = function(uploadId, file) {
     };
   });
 };
-
-
-$(function() {
-  window.button.addEventListener('click', function() {
-    var file = window.fileChooser.files[0];
-    if (file) {
-      startMultipartUpload(file);
-    };
-  });
-});

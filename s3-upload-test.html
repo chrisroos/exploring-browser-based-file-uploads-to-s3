@@ -21,10 +21,26 @@
 
         window.fileChooser = document.getElementById('file-chooser');
         window.button = document.getElementById('upload-button');
+
+        window.button.addEventListener('click', function() {
+          var file = window.fileChooser.files[0];
+          if (file) {
+            var uploadType = $('input[name=uploadType]:checked').val();
+
+            if (uploadType == 'single') {
+              uploadFile(file);
+            } else {
+              startMultipartUpload(file);
+            };
+
+          } else {
+            log('Nothing to upload.');
+          };
+        }, false);
       });
     </script>
 
-    <script src="./javascript/s3-upload.jsx"></script>
+    <script src="./javascript/s3-upload.js"></script>
     <script src="./javascript/s3-upload-multipart.js"></script>
 
     <title>Playing with AWS JS SDK</title>
@@ -34,6 +50,12 @@
 
     <h2>Input</h2>
 
+    <div>
+      <input type="radio" name="uploadType" value="single" checked="checked">Single file</input>
+    </div>
+    <div>
+      <input type="radio" name="uploadType" value="multipart">Multipart</input>
+    </div>
     <div>
       <input type="file" id="file-chooser" />
     </div>
