@@ -34,8 +34,6 @@ I've created this repo to help test and understand the differences between uploa
 
 * Upload a file and observe the time taken
 
-* You'll currently need to switch between s3-upload.js and s3-upload-multipart.js
-
 ## Potentially useful links
 
 * [Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html)
