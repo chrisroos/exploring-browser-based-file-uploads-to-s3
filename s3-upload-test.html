@@ -28,19 +28,25 @@
           <h2 class="panel-title">Input</h2>
         </div>
         <div class="panel-body">
-          <div class="radio">
-            <label>
-              <input type="radio" name="uploadType" value="single" checked="checked">
-              Single file
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <input type="radio" name="uploadType" value="multipart">
-              Multipart
-            </label>
+          <div class="form-group">
+            <label class="control-label">How should we upload the file to S3?</label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="uploadType" value="single" checked="checked">
+                Single file
+              </label>
+              <span class="help-block">The file is uploaded as-is to S3</span>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="uploadType" value="multipart">
+                Multipart
+              </label>
+              <span class="help-block">The file is split into chunks before uploading to S3</span>
+            </div>
           </div>
           <div class="form-group">
+            <label for="file-chooser">Select a file to upload to S3</label>
             <input type="file" id="file-chooser" />
           </div>
           <div class="form-group">
