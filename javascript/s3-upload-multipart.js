@@ -4,8 +4,8 @@ var completedChunks = [];
 
 
 var chunkFile = function(file) {
-  var chunkSizeInMB = 10; // AWS S3 has a 5MB minimum chunk size
-  var chunkSize = chunkSizeInMB * 1024 * 1024;
+  var chunkSizeInMb = $('#chunkSizeInMb').val();
+  var chunkSize = chunkSizeInMb * 1024 * 1024;
   var numberOfChunks = Math.ceil(file.size / chunkSize);
   var fileChunks = [];
 
@@ -36,6 +36,7 @@ var queueChunks = function(chunks) {
 
 var startMultipartUpload = function(file) {
   start();
+  printChunkSize($('#chunkSizeInMb').val());
 
   var fileChunks = chunkFile(file);
   queueChunks(fileChunks);

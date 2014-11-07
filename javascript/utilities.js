@@ -1,5 +1,6 @@
 var start = function() {
   reset();
+  printChunkSize();
   recordStartedAt();
 };
 
@@ -9,10 +10,15 @@ var finish = function() {
 };
 
 var reset = function() {
+  $('#chunkSize').text('');
   $('#startedAt').text('');
   $('#finishedAt').text('');
   $('#duration').text('');
   $('#log').html('');
+};
+
+var printChunkSize = function(chunkSize) {
+  $('#chunkSize').text(chunkSize);
 };
 
 var recordStartedAt = function() {

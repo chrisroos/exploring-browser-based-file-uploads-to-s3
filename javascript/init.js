@@ -10,6 +10,21 @@ $(function() {
   var fileChooser = document.getElementById('file-chooser');
   var button = document.getElementById('upload-button');
 
+  var toggleChunkSizeInput = function() {
+    var uploadType = $('input[name=uploadType]:checked').val();
+    if (uploadType == 'single') {
+      $('#chunkSizeInMb').prop('disabled', true);
+    } else {
+      $('#chunkSizeInMb').prop('disabled', false);
+    };
+  };
+
+  $('input[name=uploadType]').click(function() {
+    toggleChunkSizeInput();
+  });
+
+  toggleChunkSizeInput();
+
   button.addEventListener('click', function() {
     var file = fileChooser.files[0];
     if (file) {

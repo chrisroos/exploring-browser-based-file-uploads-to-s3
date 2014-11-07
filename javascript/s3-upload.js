@@ -1,5 +1,6 @@
 var uploadFile = function(file) {
   start();
+  printChunkSize('N/A');
 
   var params = {
     'Key': file.name,
