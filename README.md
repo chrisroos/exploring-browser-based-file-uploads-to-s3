@@ -45,3 +45,13 @@ I've created this repo to help test and understand the differences between uploa
 
 * [EvaporateJS](https://github.com/TTLabs/EvaporateJS)
 * [EvaporateJS issue about using the official JS SDK](https://github.com/TTLabs/EvaporateJS/issues/52)
+
+## Improvements
+
+I suspect I'll not do anything else on this as I've already spent too much time on it and it was only really designed to test the difference between uploading a single chunk versus multiple chunks. If I do revisit it then here are some things that might be worth working on.
+
+* Use progress bars to show much of the file has uploaded.
+
+* Better error handling.
+
+* Improve the JavaScript - it currently uses lots of global functions.
