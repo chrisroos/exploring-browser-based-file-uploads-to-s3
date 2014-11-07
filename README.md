@@ -39,8 +39,11 @@ I've created this repo to help test and understand the differences between uploa
 ## Potentially useful links
 
 * [Multipart Upload Overview](http://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html)
-* https://enzam.wordpress.com/2013/05/13/upload-to-amazon-s3-server-directly-from-browser-in-chunk-and-resumable-way/
-* https://github.com/ienzam/s3-multipart-upload-browser
-* [AWS JS SDK](https://github.com/aws/aws-sdk-js)
+* [AWS JS SDK on GitHub](https://github.com/aws/aws-sdk-js)
+* [AWS JS SDK API Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html)
+
+* [Blog post discussing using the AWS JS SDK to upload files using the Multipart API](https://enzam.wordpress.com/2013/05/13/upload-to-amazon-s3-server-directly-from-browser-in-chunk-and-resumable-way/)
+* [Code mentioned in the aforementioned blog post](https://github.com/ienzam/s3-multipart-upload-browser)
+
 * [EvaporateJS](https://github.com/TTLabs/EvaporateJS)
 * [EvaporateJS issue about using the official JS SDK](https://github.com/TTLabs/EvaporateJS/issues/52)
